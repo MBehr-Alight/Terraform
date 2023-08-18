@@ -1,15 +1,25 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
 
-provider "azurerm" {
-  client_id = "a1632429-8379-4543-8721-bf9db23cf5ec"
-  client_secret = "cOd8Q~hBV6c~mQn0p_eAPkiHSR7vI~64chKv_bwg"
-  tenant_id = "3f3bd27e-09a0-4fbb-af2d-8d568620df46"
-  subscription_id = "bf44f0f2-7074-429a-8228-1ed755e05026"
-  features {}
+module "sharepoint" {
+  source               = "Yvand/sharepoint/azurerm"
+  location              = "West Europe"
+  resource_group_name   = "<resourceGroupName>"
+  sharepoint_version    = "Subscription-Latest"
+  admin_username        = "yvand"
+  admin_password        = "<password>"
+  add_public_ip_address = "SharePointVMsOnly"
+  rdp_traffic_allowed   = "<yourInternetPublicIP>"
 }
 
-locals {
+
+
+
+
+
+
+
+
+
+/*locals {
   common_tags = {
     Umgebung = "${var.environment}"
     Kunde = "${var.customer}"
@@ -94,24 +104,5 @@ resource "azurerm_windows_virtual_machine" "vm1" {
     storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
   }
-}
+}*/
 
-#resource "azurerm_logic_app_workflow" "example" {
-#  name                = "${var.prefix}-logicapp"
-#  location            = "${azurerm_resource_group.example.location}"
-#  resource_group_name = "${azurerm_resource_group.example.name}"
-#}
-
-#resource "azurerm_logic_app_trigger_recurrence" "hourly" {
-#  name         = "run-every-hour"
-#  logic_app_id = "${azurerm_logic_app_workflow.example.id}"
-#  frequency    = "Hour"
-#  interval     = 1
-#}
-
-#resource "azurerm_logic_app_action_http" "main" {
-#  name         = "clear-stable-objects"
-#  logic_app_id = "${azurerm_logic_app_workflow.example.id}"
-#  method       = "DELETE"
-#  uri          = "http://example.com/clear-stable-objects"
-#}
