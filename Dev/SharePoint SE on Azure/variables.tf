@@ -25,7 +25,7 @@ variable "sharepoint_version" {
 }
 
 variable "admin_username" {
-  default     = "yvand"
+  default     = "adm-behr"
   description = "Name of the AD and SharePoint administrator. 'admin' and 'administrator' are not allowed."
   validation {
     condition = !contains([
@@ -37,22 +37,22 @@ variable "admin_username" {
 }
 
 variable "admin_password" {
-  default     = ""
+  default     = "Highn00n12!!"
   description = "Leave empty to use an auto-generated password that will be recorded in the state file. Input must meet password complexity requirements as documented in https://learn.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-"
 }
 
 variable "service_accounts_password" {
-  default     = ""
+  default     = "Highn00n12!!"
   description = "Leave empty to use an auto-generated password that will be recorded in the state file. Input must meet password complexity requirements as documented in https://learn.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-"
 }
 
 variable "domain_fqdn" {
-  default     = "contoso.local"
+  default     = "alight.local"
   description = "FQDN of the AD forest to create"
 }
 
 variable "time_zone" {
-  default     = "Romance Standard Time"
+  default     = "W. Europe Standard Time"
   description = "Time zone of the virtual machines."
   validation {
     condition = contains([
@@ -201,7 +201,7 @@ variable "time_zone" {
 }
 
 variable "auto_shutdown_time" {
-  default     = "1900"
+  default     = "1830"
   type        = string
   description = "The time at which VMs will be automatically shutdown (24h HHmm format). Set value to '9999' to NOT configure the auto shutdown."
   validation {
@@ -220,12 +220,12 @@ variable "number_additional_frontend" {
 }
 
 variable "rdp_traffic_allowed" {
-  default     = "No"
+  default     = "Internet"
   description = "Specify if RDP traffic is allowed:<br>- If 'No' (default): Firewall denies all incoming RDP traffic.<br>- If '*' or 'Internet': Firewall accepts all incoming RDP traffic from Internet.<br>- If CIDR notation (e.g. 192.168.99.0/24 or 2001:1234::/64) or IP address (e.g. 192.168.99.0 or 2001:1234::): Firewall accepts incoming RDP traffic from the IP addresses specified."
 }
 
 variable "add_public_ip_address" {
-  default     = "SharePointVMsOnly"
+  default     = "Yes"
   description = "Specify if a public IP address should be added."
   validation {
     condition = contains([
@@ -244,13 +244,13 @@ variable "enable_azure_bastion" {
 }
 
 variable "enable_hybrid_benefit_server_licenses" {
-  default     = false
+  default     = true
   type        = bool
   description = "Enable Azure Hybrid Benefit to use your on-premises Windows Server licenses and reduce cost. See https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing for more information."
 }
 
 variable "vm_dc_size" {
-  default     = "Standard_B2s"
+  default     = "Standard_B2ms"
   description = "Size of the DC VM."
 }
 
@@ -271,7 +271,7 @@ variable "vm_dc_storage_account_type" {
 }
 
 variable "vm_sql_size" {
-  default     = "Standard_B2ms"
+  default     = "Standard_B4ms"
   description = "Size of the SQL VM."
 }
 

@@ -73,10 +73,10 @@ locals {
   }
 
   vms_settings = {
-    vm_dc_name           = "DC"
-    vm_sql_name          = "SQL"
-    vm_sp_name           = "SP"
-    vm_fe_name           = "FE"
+    vm_dc_name           = "vm_DC"
+    vm_sql_name          = "vm_SQL"
+    vm_sp_name           = "vm_SP"
+    vm_fe_name           = "vm_FE"
     vm_dc_image          = "MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-smalldisk:latest"
     vm_sql_image         = var.sharepoint_version == "2013" ? "MicrosoftSQLServer:sql2014sp3-ws2012r2:sqldev:latest" : "MicrosoftSQLServer:sql2022-ws2022:sqldev-gen2:latest"
     vms_sharepoint_image = lookup(local.sharepoint_images_list, split("-", var.sharepoint_version)[0])

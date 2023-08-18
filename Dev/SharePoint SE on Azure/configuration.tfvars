@@ -1,4 +1,4 @@
-location                   = "France Central"
+location                   = "westeurope"
 sharepoint_version         = "Subscription-Latest" #"2019"
 number_additional_frontend = 0
 enable_azure_bastion       = false
