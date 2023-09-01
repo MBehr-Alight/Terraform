@@ -1,5 +1,5 @@
 variable "location" {
-  default     = "West Europe"
+  #default     = "West Europe"
   description = "Location where resources will be provisioned"
 }
 
@@ -8,7 +8,7 @@ variable "resource_group_name" {
 }
 
 variable "sharepoint_version" {
-  default     = "Subscription-Latest"
+  #default     = "Subscription-Latest"
   description = "Version of SharePoint farm to create."
   validation {
     condition = contains([
@@ -25,7 +25,7 @@ variable "sharepoint_version" {
 }
 
 variable "admin_username" {
-  default     = "adm-behr"
+  #default     = "adm-behr"
   description = "Name of the AD and SharePoint administrator. 'admin' and 'administrator' are not allowed."
   validation {
     condition = !contains([
@@ -37,17 +37,17 @@ variable "admin_username" {
 }
 
 variable "admin_password" {
-  default     = "Highn00n12!!"
+  #default     = "Highn00n12!!"
   description = "Leave empty to use an auto-generated password that will be recorded in the state file. Input must meet password complexity requirements as documented in https://learn.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-"
 }
 
 variable "service_accounts_password" {
-  default     = "Highn00n12!!"
+  #default     = "Highn00n12!!"
   description = "Leave empty to use an auto-generated password that will be recorded in the state file. Input must meet password complexity requirements as documented in https://learn.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-"
 }
 
 variable "domain_fqdn" {
-  default     = "alight.local"
+  #default     = "alight.local"
   description = "FQDN of the AD forest to create"
 }
 
@@ -201,7 +201,7 @@ variable "time_zone" {
 }
 
 variable "auto_shutdown_time" {
-  default     = "1830"
+  #default     = "1830"
   type        = string
   description = "The time at which VMs will be automatically shutdown (24h HHmm format). Set value to '9999' to NOT configure the auto shutdown."
   validation {
@@ -211,7 +211,7 @@ variable "auto_shutdown_time" {
 }
 
 variable "number_additional_frontend" {
-  default     = 0
+  #default     = 0
   description = "Number of MinRole Front-end to add to the farm. The MinRole type can be changed later as needed."
   validation {
     condition     = var.number_additional_frontend >= 0 && var.number_additional_frontend <= 4
@@ -225,7 +225,7 @@ variable "rdp_traffic_allowed" {
 }
 
 variable "add_public_ip_address" {
-  default     = "Yes"
+  #default     = "Yes"
   description = "Specify if a public IP address should be added."
   validation {
     condition = contains([
@@ -238,7 +238,7 @@ variable "add_public_ip_address" {
 }
 
 variable "enable_azure_bastion" {
-  default     = false
+  #default     = false
   type        = bool
   description = "Specify if Azure Bastion should be provisioned. See https://azure.microsoft.com/en-us/services/azure-bastion for more information."
 }
@@ -313,5 +313,5 @@ variable "vm_sp_storage_account_type" {
 }
 
 variable "_artifactsLocation" {
-  default = "https://raw.githubusercontent.com/Yvand/terraform-azurerm-sharepoint/3.9.0/dsc/"
+  default = "https://raw.githubusercontent.com/MBehr-Alight/Terrafrom/Dev/SharePoint%20SE%20on%20Azure/DSC"
 }
